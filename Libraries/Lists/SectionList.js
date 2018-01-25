@@ -23,7 +23,17 @@ import type {Props as VirtualizedSectionListProps} from 'VirtualizedSectionList'
 
 type Item = any;
 
-export type SectionBase<SectionItemT> = {
+/**
+ * SectionItemT - The type of item to be rendered in the section
+ * AdditionalPropsT - Optional type parameter to enforce SectionBase containing
+ *  any additional props that the code may require
+ */
+export type SectionBase<
+  SectionItemT,
+  AdditionalPropsT = {},
+> = AdditionalPropsT & {
+  // The section base can contain any additonal props, it doesn't really matter
+  [string]: any,
   /**
    * The data for rendering items in this section.
    */
